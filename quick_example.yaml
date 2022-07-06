@@ -1,0 +1,24 @@
+version: '3'
+services:
+  quick_example:
+    image: $IMAGE_NAME
+    command: /bin/bash -c 'source env/bin/activate && chmod +x example.py && ./example.py'
+    container_name: customer_name_query_and_push_to_db_or_something
+    volumes:
+      - /location/of/local/example:/
+      #- addtional/storage/somewhere:/whatever/
+    #ports:
+      #- NNNN:NNNN
+    environment:
+      - SNOWSQL_USER=something
+      - SNOWSQL_PASSWORD=something
+      - SNOWSQL_ACCOUNT=something
+      - SNOWSQL_CUSTOMER=something
+      - SNOWSQL_WAREHOUSE=something
+      - SNOWSQL_DATABASE=something
+      - SNOWSQL_SCHEMA=something
+      - TRADEDESK_AUTH_URL="https://something"
+      - TRADEDESK_USERNAME=something
+      - TRADEDESK_PASSWORD=something
+      - TRADEDESK_API_ENDPOINT=https://something
+    restart: unless-stopped
